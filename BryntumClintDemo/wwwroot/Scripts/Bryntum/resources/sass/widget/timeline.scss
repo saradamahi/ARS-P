@@ -1,0 +1,158 @@
+@import '../variables.scss';
+
+.b-timeline {
+    flex       : 1;
+    background : $schedulerpro-timeline-background-color;
+    overflow   : visible;
+
+    .b-grid-panel-body {
+        padding    : 3em 10em 5em 10em;
+    }
+
+    .b-virtual-scrollers, .b-yscroll-pad {
+        display : none !important;
+    }
+
+    .b-sch-header-row:not(:first-child) {
+        display : none;
+    }
+
+    .b-grid-row {
+        background : transparent;
+        border-bottom : 1px solid transparent;
+    }
+
+    .b-grid-cell {
+        border : 1px solid $schedulerpro-timeline-border-color;
+    }
+
+    .b-sch-event-wrap .b-sch-event {
+        opacity          : 1;
+        border-color     : darken($event-bar-background-color, 30);
+        border-radius    : $schedulerpro-timeline-task-border-radius;
+        font-weight      : 400;
+        font-size        : 12px;
+    }
+
+    // Special milestone styling
+    .b-milestone-wrap.b-sch-event-wrap {
+        min-width : 1em;
+
+        z-index : $event-zindex + 5;
+
+        .b-sch-event:not(.b-sch-event-withicon) {
+            .b-sch-event-content:before {
+                opacity          : 1;
+                z-index          : 2;
+                background-color : $schedulerpro-milestone-background-color;
+                border           : 2px solid $schedulerpro-timeline-background-color;
+            }
+        }
+
+        .b-sch-event.b-milestone {
+            transform : translateY(50%);
+            font-size : 50%;
+
+            label {
+                margin-top  : 5em;
+                // -1em is required to compensate milestone width, see Scheduler/resources/sass/view/eventrendering.scss
+                transform   : translateX(-50%) translateX(-1em);
+                padding     : 0;
+                color       : $schedulerpro-timeline-label-color;
+                font-weight : $schedulerpro-timeline-label-font-weight;
+
+                &:before {
+                    content     : ' ';
+                    position    : absolute;
+                    top         : -2em;
+                    left        : 50%;
+                    height      : 2em;
+                    border-left : 1px solid $schedulerpro-timeline-border-color;
+                    transform   : translateX(-50%);
+                }
+            }
+        }
+    }
+
+    // EOF Special milestone styling
+
+    .b-sch-header-timeaxis-cell {
+        justify-content : start;
+        color           : $schedulerpro-timeline-label-color;
+        padding         : 0 0 0.5em 0.5em;
+        font-weight     : $schedulerpro-timeline-label-font-weight;
+
+        &:before {
+            content     : ' ';
+            position    : absolute;
+            left        : 0;
+            bottom      : 0;
+            height      : 0.7em;
+            border-left : 1px solid $schedulerpro-timeline-border-color;
+        }
+    }
+
+    // Make sure milestones + their label are visible
+    .b-schedulerbase,
+    .b-grid-body-container,
+    .b-grid-vertical-scroller,
+    .b-grid-subgrid,
+    .b-sch-foreground-canvas {
+        overflow : visible !important;
+        contain  : none !important;
+    }
+
+    // override Firefox exception in Grid/resources/sass/grid/view/subgrid.scss
+    //.b-gridbase.b-firefox:not(.b-overlay-scrollbar) .b-grid-subgrid.b-grid-horizontal-scroller
+    &.b-gridbase.b-firefox {
+        .b-grid-subgrid {
+            &.b-grid-horizontal-scroller {
+                overflow : visible !important;
+            }
+        }
+    }
+
+    .b-grid-header-container,
+    .b-grid-header-container.b-grid-vertical-overflow,
+    .b-sch-header-timeaxis-cell,
+    .b-grid-header-container .b-sch-timeaxiscolumn,
+    .b-grid-header-container .b-sch-timeaxiscolumn:hover {
+        background : transparent !important;
+        box-shadow : none;
+        border     : none;
+    }
+
+    .b-grid-header {
+        min-height: 1.5em;
+    }
+
+    .b-grid-vertical-overflow .b-grid-header-scroller:last-child {
+        border-right: none;
+    }
+
+    // Labels
+    .b-timeline-startdate {
+        left      : -1em;
+        transform : translateX(-100%);
+    }
+
+    .b-timeline-enddate {
+        right     : -1em;
+        transform : translateX(100%);
+    }
+
+    .b-timeline-startdate,
+    .b-timeline-enddate {
+        position        : absolute;
+        top             : 0;
+
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        color           : $schedulerpro-timeline-label-color;
+        min-width       : 6em;
+        font-size       : $grid-header-font-size;
+        font-weight     : $schedulerpro-timeline-label-font-weight;
+    }
+
+}

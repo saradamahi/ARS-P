@@ -1,0 +1,9 @@
+// additional scheduler pro icons, none yet...
+
+.b-icon-note:before {
+    content: "#{ $fa-var-sticky-note }";
+}
+
+.b-icon-advanced:before {
+    content: "#{ $fa-var-cogs }";
+}

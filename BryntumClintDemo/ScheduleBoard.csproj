@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Scripts\Bryntum\data\" />
+    <Folder Include="wwwroot\Scripts\Bryntum\lib\" />
+    <Folder Include="wwwroot\Scripts\Bryntum\vendor\" />
+    <Folder Include="wwwroot\Scripts\Bryntum\SchedulerPro\" />
+    <Folder Include="wwwroot\Scripts\Bryntum\resources\" />
+    <Folder Include="wwwroot\Scripts\Bryntum\_shared\" />
+  </ItemGroup>
+
+</Project>

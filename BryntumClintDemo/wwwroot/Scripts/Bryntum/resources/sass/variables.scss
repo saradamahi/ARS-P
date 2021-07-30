@@ -1,0 +1,36 @@
+@import '../scheduler-sass/variables.scss';
+
+// region ResourceHistogram
+
+$resourcehistogram-bar-color                      : scale_color($event-color-green, $lightness : 70%) !default;
+$resourcehistogram-bar-hover-color                : scale_color($event-color-green, $lightness : 60%) !default;
+$resourcehistogram-overallocated-bar-color        : scale_color($event-color-red, $lightness : 40%) !default;
+$resourcehistogram-overallocated-bar-hover-color  : scale_color($event-color-red, $lightness : 30%) !default;
+$resourcehistogram-underallocated-bar-color       : scale_color($event-color-green, $lightness : 40%) !default;
+$resourcehistogram-underallocated-bar-hover-color : scale_color($event-color-green, $lightness : 30%) !default;
+$resourcehistogram-bar-legend-font-size           : $histogram-bar-legend-font-size !default;
+
+// endregion
+
+// region PercentBar
+
+$percent-bar-background-color                     : rgba(0, 0, 0, .15) !default;
+$percent-bar-hover-background-color               : null !default;
+$percent-bar-selected-background-color            : rgba(0, 0, 0, .2) !default;
+$percent-bar-parent-background-color              : $percent-bar-background-color !default;
+$percent-bar-parent-hover-background-color        : null !default;
+
+// endregion
+
+// region Timeline
+
+$schedulerpro-parent-background-color : scale_color($blue, $lightness : 40%) !default;
+$schedulerpro-milestone-background-color : $schedulerpro-parent-background-color !default;
+
+$schedulerpro-timeline-task-border-radius : null !default;
+$schedulerpro-timeline-background-color : $panel-background-color !default;
+$schedulerpro-timeline-border-color : $grid-header-border-color !default;
+$schedulerpro-timeline-label-color : darken($grid-header-border-color, 10%) !default;
+$schedulerpro-timeline-label-font-weight : null !default;
+
+// endregion

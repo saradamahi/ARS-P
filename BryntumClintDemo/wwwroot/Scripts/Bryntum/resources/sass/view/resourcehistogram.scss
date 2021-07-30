@@ -1,0 +1,53 @@
+@import '../variables.scss';
+
+.b-resourcehistogram {
+    .b-grid-row {
+        z-index : 1;
+    }
+
+    .b-resourcehistogram-cell {
+        padding            : 0;
+        border-right-width : 0;
+    }
+
+    // No focus outline for histogram cells
+    .b-timeline-subgrid .b-grid-cell.b-focused::after {
+        display : none;
+    }
+}
+
+.b-resourcehistogram-histogram {
+    padding          : 0;
+    background-color : transparent;
+
+    .b-bar-legend {
+        font-size      : $resourcehistogram-bar-legend-font-size;
+
+        // So as not to interfere with mouseover of the bars
+        pointer-events : none;
+    }
+
+    rect {
+        fill : $resourcehistogram-bar-color;
+
+        &.b-underallocated {
+            fill : $resourcehistogram-underallocated-bar-color;
+
+            &:hover {
+                fill : $resourcehistogram-underallocated-bar-hover-color;
+            }
+        }
+
+        &.b-overallocated {
+            fill : $resourcehistogram-overallocated-bar-color;
+
+            &:hover {
+                fill : $resourcehistogram-overallocated-bar-hover-color;
+            }
+        }
+
+        &:hover {
+            fill : $resourcehistogram-bar-hover-color;
+        }
+    }
+}

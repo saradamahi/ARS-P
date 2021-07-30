@@ -1,0 +1,17 @@
+@import '../variables.scss';
+
+
+// For when it's inside a grid cell.
+.b-scale-cell {
+    padding-right : 0!important;
+    padding-left  : 0!important;
+
+    .b-scale {
+        background-color : transparent;
+        font-weight      : $grid-cell-font-weight;
+    }
+
+    .b-scale-tick-label {
+        font-size : 70%;
+    }
+}

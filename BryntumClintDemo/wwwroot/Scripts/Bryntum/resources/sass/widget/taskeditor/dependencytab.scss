@@ -1,0 +1,13 @@
+@import '../../variables.scss';
+
+.b-dependencytab {
+    .b-grid {
+        .b-grid-row.b-invalid {
+            border-bottom: 1px dotted $red;
+
+            .b-icon-warning {
+                color: $red;
+            }
+        }
+    }
+}

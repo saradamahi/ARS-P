@@ -1,0 +1,111 @@
+@import '../variables.scss';
+
+.b-percentbar .b-sch-event {
+    overflow : visible !important;
+}
+
+.b-task-percent-bar-outer {
+    position : absolute;
+    height   : 100%;
+    width    : 100%;
+    overflow : hidden;
+
+    .b-sch-style-rounded & {
+        border-radius : 2em;
+    }
+}
+
+.b-task-percent-bar {
+    background-color : $percent-bar-background-color;
+    height           : 100%;
+    max-width        : 100%;
+    z-index          : 0;
+    box-sizing       : content-box;
+    display          : flex;
+    justify-content  : flex-end;
+    align-items      : flex-end;
+
+    // Always transition color, for hover etc.
+    transition       : color 0.2s;
+
+    // Only transition width while animating changes
+    .b-animating & {
+        transition : color 0.2s, width 0.2s
+    }
+
+    text-align       : right;
+    // if outside page uses line-height on BODY tag it will displace the % text
+    line-height      : initial;
+
+    // No transition on width when resizing
+    .b-task-percent-bar-resizing & {
+        transition : background-color 0.2s;
+    }
+
+    .b-sch-event-selected & {
+        background-color : $percent-bar-selected-background-color;
+    }
+
+    .b-sch-style-rounded & {
+        background-color : currentColor;
+        mix-blend-mode   : overlay;
+        opacity          : .5;
+    }
+
+    .b-sch-style-rounded .b-sch-event:hover & {
+        mix-blend-mode : darken;
+        opacity        : .4;
+    }
+
+    .b-sch-style-rounded .b-sch-event.b-sch-event-selected:hover &,
+    .b-sch-style-rounded .b-sch-event-selected & {
+        mix-blend-mode : darken;
+        opacity        : .9;
+    }
+}
+
+.b-task-percent-bar-handle {
+    position           : absolute;
+    bottom             : 0;
+    width              : 0;
+    height             : 0;
+    cursor             : ew-resize !important;
+    margin-left        : -5px;
+    z-index            : 1000;
+    border-color       : #fff;
+    border-right-color : transparent;
+    border-left-color  : transparent;
+    border-width       : 0 5px 6px 5px;
+    border-style       : solid;
+
+    .b-sch-style-rounded & {
+        mix-blend-mode      : overlay;
+        border-top-color    : #333;
+        border-bottom-color : #333;
+    }
+}
+
+// Display xx%
+.b-task-percent-bar-show-percentage:not(.b-resizing-event):not(.b-dragging-event) {
+    .b-task-percent-bar-resizing,
+    .b-sch-event-hover {
+        .b-task-percent-bar-handle::after {
+            content    : attr(data-percent) "%";
+            margin-top : 10px;
+            font-size  : .7em;
+            position   : absolute;
+            color      : $grid-cell-color;
+            transform  : translateX(-50%);
+        }
+    }
+}
+
+.b-task-percent-bar-resizing-task {
+    user-select : none;
+    cursor      : ew-resize !important;
+}
+
+.b-task-percent-bar-drag-disabled .b-task-percent-bar-handle,
+.b-readonly .b-task-percent-bar-handle {
+    display : none !important;
+}

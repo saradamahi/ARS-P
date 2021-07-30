@@ -1,0 +1,24 @@
+@import '../../scheduler-sass/themes/material.scss';
+
+$schedulerpro-timeline-border-color: $grid-cell-border-color;
+$schedulerpro-timeline-label-color: darken($grid-cell-border-color, 10%);
+$schedulerpro-timeline-label-font-weight : 400;
+
+@import 'shared';
+
+
+// Put custom code here
+.b-popup.b-schedulerpro-taskeditor {
+    .b-divider {
+        // There is some insanely long selector applied for inline-flex
+        display: none !important;
+    }
+
+    .b-tabpanel-body {
+        padding-bottom : 0;
+    }
+
+    .b-tabpanel-tab {
+        min-width : 3em;
+    }
+}

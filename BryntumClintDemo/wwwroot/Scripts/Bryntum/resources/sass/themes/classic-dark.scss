@@ -1,0 +1,14 @@
+@import '../../scheduler-sass/themes/classic-dark.scss';
+
+$resourcehistogram-bar-color                      : scale_color($event-color-green, $lightness : -50%);
+$resourcehistogram-bar-hover-color                : scale_color($event-color-green, $lightness : -40%);
+$resourcehistogram-overallocated-bar-color        : scale_color($event-color-red, $lightness : -20%);
+$resourcehistogram-overallocated-bar-hover-color  : scale_color($event-color-red, $lightness : -10%);
+$resourcehistogram-underallocated-bar-color       : scale_color($event-color-green, $lightness : -20%);
+$resourcehistogram-underallocated-bar-hover-color : scale_color($event-color-green, $lightness : -10%);
+
+$schedulerpro-timeline-border-color: lighten($gray, 10);
+$schedulerpro-timeline-label-color: lighten($gray, 20);
+$schedulerpro-timeline-label-font-weight: 400;
+
+@import 'shared';
