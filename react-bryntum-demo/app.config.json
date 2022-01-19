@@ -1,0 +1,4 @@
+{
+  "title": "Drag between React scheduler instances",
+  "description": "This demo contains two React Scheduler component instances and lets you drag tasks between them."
+}

@@ -1,0 +1,52 @@
+{
+  "name": "drag-between-schedulers",
+  "description": "Drag between React scheduler instances",
+  "version": "4.3.5",
+  "author": {
+    "name": "Bryntum",
+    "url": "https://bryntum.com",
+    "email": "info@bryntum.com"
+  },
+  "license": "commercial",
+  "homepage": "./",
+  "scripts": {
+    "start": "cross-env NODE_OPTIONS='--max-old-space-size=8192' react-scripts start",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=8192' react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "postinstall",
+    "generate": "node ./server/generate.js > ./server/database.json",
+    "server": "json-server --watch ./server/database.json  --id=_id --routes ./server/routes.json --port 3004"
+  },
+  "postinstall": {
+    "node_modules/@bryntum/demo-resources/images/users/*": "copy public/users/",
+    "node_modules/@bryntum/demo-resources/images/favicon.png": "copy public/",
+    "node_modules/@bryntum/schedulerpro/*.css": "copy public/themes/",
+    "node_modules/@bryntum/schedulerpro/fonts/*": "copy public/themes/fonts/"
+  },
+  "dependencies": {
+    "@bryntum/demo-resources": "1.1.0",
+    "@bryntum/schedulerpro": "npm:@bryntum/schedulerpro-trial@4.3.5",
+    "@bryntum/schedulerpro-react": "4.3.5",
+    "axios": "^0.25.0",
+    "cross-env": "~7.0.2",
+    "react": "~16.14.0",
+    "react-dom": "~16.14.0",
+    "react-scripts": "~3.4.4",
+    "react-toastify": "^8.1.0"
+  },
+  "devDependencies": {
+    "faker": "^6.6.6",
+    "json-server": "^0.17.0",
+    "postinstall": "~0.7.0",
+    "sass": "~1.42.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}
