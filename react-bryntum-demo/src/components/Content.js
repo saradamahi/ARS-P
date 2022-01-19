@@ -97,6 +97,9 @@ const Content = (props) => {
           // It's meant to be used as a development stage helper only so please set it to false for production systems.
           validateResponse: true,
         }}
+        features={{
+          group: "primaryDisciplineName",
+        }}
       />
       <BryntumSplitter />
       <UnplannedGridComponent ref={grid} eventStore={eventStore} />
